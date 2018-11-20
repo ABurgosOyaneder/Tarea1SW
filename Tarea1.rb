@@ -1,3 +1,4 @@
+
 require 'httparty'
 require 'openssl'
 
@@ -23,7 +24,7 @@ def anio
     lista << data['nombres']
       lista << data['fechaNacimiento']
     end
-    File.open('alhambrasaavedra',"w") do |f|
+    File.open('ABurgosOyaneder',"w") do |f|
       f.puts lista
     end
   end
@@ -43,7 +44,7 @@ def asignaturas1
       lista << data['nombre']
       lista << data['codigo']
     end
-    File.open('alhambrasaavedra',"w") do |f|
+    File.open('ABurgosOyaneder',"w") do |f|
       f.puts lista
     end
   end
@@ -61,7 +62,7 @@ def anio2015
     lista << data['asignatura']
     lista << data['anio']
     end
-    File.open('alhambrasaavedra',"w") do |f|
+    File.open('ABurgosOyaneder',"w") do |f|
       f.puts lista
     end
   end
@@ -69,33 +70,21 @@ def anio2015
 end
 
 
-
-def menu
-  print "Tarea 1 Ingenieria de Software\n"
-  print "1.- Asignaturas INF\n"
-  print "2.- Total asignaturas INF impartidas en 2015\n"
-  print "3.- Nómina de todos los docentes nacidos antes del 1980\n"
-  print "4.- Salir\n"
-  print "0.- Volver al menu\n"
-  opcion = gets.to_i
-  case opcion
-  when 1
-    asignaturas1
-    menu
-  when 2
-    anio2015
-    menu
-    print "\n"
-  when 3
-    anio
-    menu
-    print "\n"
-  when 4
-    print "Adios\n"
-  when 0
-    menu
-
-  end
-end
+	def menu
+		puts "Ingrese seleccion : "
+		puts " 1. Mostrar todas las asignaturas con codigo INF"
+		puts " 2. Mostrar el total de las asignaturas con codigo INF impartidas el 2015"
+		puts " 3. Crear nómina de todos los docentes nacidos antes del 1980. "
+        puts "4.- Salir\n"
+		print "Seleccion: "
+		seleccion = gets.chomp.to_i
+		 case seleccion
+			when 1 then asignaturas1
+			when 2 then anio2015
+			when 3 then anio
+			when 4 print 'adios'
+			else 	
+		end
+	end
 
 menu
